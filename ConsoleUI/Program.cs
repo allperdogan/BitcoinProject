@@ -1,5 +1,4 @@
 ﻿using Business.Abstract;
-using Business.BackgroundServices;
 using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
@@ -25,11 +24,8 @@ namespace ConsoleUI
                 var cancellationToken = cancellationTokenSource.Token;
 
                 // Bitcoin değerlerini belirli bir aralıkta güncelle
-                await bitcoinValueUpdater.RunBitcoinUpdaterWithInterval(TimeSpan.FromSeconds(10), cancellationToken);
+                //await bitcoinValueUpdater.RunBitcoinUpdaterWithInterval(TimeSpan.FromSeconds(10), cancellationToken);
             }
-
-
-
         }
 
         private static IServiceProvider ConfigureServices()

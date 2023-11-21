@@ -18,6 +18,8 @@ namespace DataAccess.Concrete.EntityFramework
         }
 
         public DbSet<BitcoinValue> bitcoinvalues { get; set; }
-
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<User> users { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     }
 }

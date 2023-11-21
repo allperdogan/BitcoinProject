@@ -22,6 +22,12 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<BitcoinValueManager>().As<IBitcoinValueService>();
             builder.RegisterType<EfBitcoinValueDal>().As<IBitcoinValueDal>();
             builder.RegisterType<BitcoinValueUpdater>();
+            builder.RegisterType<UserManager>().As<IUserService>();
+            builder.RegisterType<EfUserDal>().As<IUserDal>();
+            builder.RegisterType<UserManager>().As<IUserService>();
+            builder.RegisterType<EfUserDal>().As<IUserDal>();
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

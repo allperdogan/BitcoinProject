@@ -1,33 +1,52 @@
-# Bitcoin Value Tracker
+# Bitcoin Değer Takip Uygulaması
 
-This is a full-stack application that tracks and displays the historical values of Bitcoin. It includes a .NET Core backend with PostgreSQL for data storage, an Angular frontend for visualization, and a background service for periodic data updates.
+Bu proje, bir arka plan servisi kullanarak rastgele bir kaynaktan Bitcoin değerlerini alabilen bir uygulama geliştirmeyi amaçlamaktadır. Uygulama, verileri bir grafik olarak temsil edebilen bir ön uç içermeli ve bu verileri gün, hafta ve ay sırasına koyabilme yeteneğine sahip olmalıdır.
 
-## Features
+## İçindekiler
+- [Teknik Tasarım](#teknik-tasarım)
+  - [Veritabanı Yapısı](#veritabanı-yapısı)
+  - [Arka Plan Servisi](#arka-plan-servisi)
+  - [Ön Uç](#ön-uç)
+  - [Giriş Yapılandırması](#giriş-yapılandırması)
+- [Bağımlılıklar](#bağımlılıklar)
+- [Kullanım](#kullanım)
+- [Docker Entegrasyonu](#docker-entegrasyonu)
 
-- **Backend:** .NET Core, Entity Framework, PostgreSQL
-- **Frontend:** Angular, Ngx-Charts
-- **Background Service:** .NET Core Worker
-- **Dockerized:** Uses Docker Compose for easy deployment
-- **Authentication:** .NET Identity for user authentication
+## Teknik Tasarım
 
-## Usage
+### Veritabanı Yapısı
 
-1. Clone the repository.
-2. Run `docker-compose up` to start the application.
-3. Access the frontend at `http://localhost:4200`.
-4. Log in to view the Bitcoin value graph.
-5. Choose the time interval (day, week, month) and click "Update Graph" to refresh the data.
+Uygulama PostgreSQL veritabanını kullanır. Veritabanı yapısı, Bitcoin değerlerini depolamak için gerekli alanları içerecek şekilde tasarlanmıştır. Veritabanı ile etkileşimde bulunmak için Entity Framework PostgreSQL paketi kullanılmaktadır.
 
-## Requirements
+### Arka Plan Servisi
 
-- Docker
-- Node.js
-- .NET Core SDK
+Belirli aralıklarla Bitcoin değerlerinde güncellemeleri kontrol etmek üzere bir arka plan servisi uygulanmıştır. Bu, uygulamanın her zaman güncel bilgileri sunmasını sağlar.
 
-## Contributing
+### Ön Uç
 
-Feel free to open issues, submit pull requests, or suggest improvements. Contributions are welcome!
+Ön uç, [Angular/HTML/CSS] kullanılarak geliştirilmiştir. Bitcoin değerlerini bir grafik olarak temsil etmek ve kullanıcılara gün, hafta ve ay sırasına koyma imkanı sağlar.
 
-## License
+### Giriş Yapılandırması
 
-This project is licensed under the [MIT License](LICENSE).
+Uygulama, .NET çözümlerine dayalı bir giriş yapısı içerir. Yalnızca giriş yapan kullanıcılar, grafik verilerine erişebilir, bu da bilgilerin güvenliğini ve gizliliğini sağlar.
+
+## Bağımlılıklar
+
+- [PostgreSQL](https://www.postgresql.org/)
+- [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
+- [Angular](birini seçin ve bağlantıyı ekleyin)
+- [.NET](https://dotnet.microsoft.com/)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+## Kullanım
+
+1. Depoyu klonlayın.
+2. PostgreSQL veritabanını kurun ve bağlantı dizesini arka planda yapılandırın.
+3. Arka plan servisini çalıştırın.
+4. Ön uç uygulamasını kurun ve çalıştırın.
+5. Uygulamaya belirtilen URL üzerinden erişin.
+
+## Docker Entegrasyonu
+
+Proje, dağıtım ve ölçeklenebilirlik için Dockerize edilmeyi hedefler. Şu anda Docker kurulumu devam etmektedir. Plan, Docker Compose kullanarak arka plan servisini, ön uçu ve arka uçu Dockerize etmektir. Docker Compose çalıştırıldığında PostgreSQL tablo yapısı oluşturulur ve yeniden başlatma sonrasında bütünlüğünü ve verilerini korur.

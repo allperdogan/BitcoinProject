@@ -34,7 +34,7 @@ Uygulama, .NET çözümlerine dayalı bir giriş yapısı içerir. Yalnızca gir
 
 - [PostgreSQL](https://www.postgresql.org/)
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
-- [Angular](birini seçin ve bağlantıyı ekleyin)
+- [Angular]
 - [.NET](https://dotnet.microsoft.com/)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
